@@ -7,6 +7,7 @@ def get_book_text(book_file_path):
 def main():
     book_file_path = "./books/frankenstein.txt"
     book_text = get_book_text(book_file_path)
-    print(book_text)
+    words = book_text.split()
+    print(f"Found {len(words)} total words")
 
 main() 
