@@ -1,17 +1,24 @@
+import sys
+arguments = sys.argv
+book = arguments[1]
+
 def get_book_text(book_file_path): 
     # This function reads the content of a book file and returns it as a string.
     with open(book_file_path) as f: 
         book_text = f.read()
     return book_text
 
+def sort_on(items):
+    return items["num"]
+
 def word_count():
-    book_file_path = "./books/frankenstein.txt"
+    book_file_path = book
     book_text = get_book_text(book_file_path)
     words = book_text.split()
-    print(f"Found {len(words)} total words")
+    return len(words)
 
 def char_count():
-    book_file_path = "./books/frankenstein.txt"
+    book_file_path = book
     book_text = get_book_text(book_file_path)
     lower = book_text.lower()
     char = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0,
@@ -29,4 +36,6 @@ def sort():
     char = char_count()
     for i in char:
         sorted.append({"char": i, "num": char[i]})
+    sorted.sort(key=sort_on, reverse=True)
+    return sorted
     
