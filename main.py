@@ -12,10 +12,5 @@ def report():
     for i in sorted:
         print(f"{i['char']}: {i['num']}")
     print("============= END ===============")
-
-
-if len(arguments) < 2:
-    print("Usage: python3 main.py <path_to_book>")
-    sys.exit(1)
-else: 
-    report()
+ 
+report()

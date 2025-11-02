@@ -1,6 +1,8 @@
 import sys
 arguments = sys.argv
-book = arguments[1]
+if len(arguments) < 2:
+    print("Usage: python3 main.py <path_to_book>")
+    sys.exit(1)
 
 def get_book_text(book_file_path): 
     # This function reads the content of a book file and returns it as a string.
@@ -12,13 +14,13 @@ def sort_on(items):
     return items["num"]
 
 def word_count():
-    book_file_path = book
+    book_file_path = arguments[1]
     book_text = get_book_text(book_file_path)
     words = book_text.split()
     return len(words)
 
 def char_count():
-    book_file_path = book
+    book_file_path = arguments[1]
     book_text = get_book_text(book_file_path)
     lower = book_text.lower()
     char = {'a': 0, 'b': 0, 'c': 0, 'd': 0, 'e': 0, 'f': 0, 'g': 0,
